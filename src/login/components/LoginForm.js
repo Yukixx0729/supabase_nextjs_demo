@@ -1,7 +1,7 @@
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 
-export default function LoginForm() {
+export default function LoginForm({ setSubmit }) {
   const supabaseClient = useSupabaseClient();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function LoginForm() {
     } else {
       setError("");
       setLoading(false);
+      setSubmit(email);
     }
   }
 
@@ -39,7 +40,9 @@ export default function LoginForm() {
         <input id="email" type="email" name="email" />
       </div>
       <button disabled={loading} type="submit" className="large-button">
-        <div className="large-button-text">Login</div>
+        <div className="large-button-text">
+          {loading ? "Logging..." : "Login"}
+        </div>
       </button>
     </form>
   );
