@@ -14,7 +14,7 @@ export default function SuccessPage() {
             alt="confetti"
             className="confetti"
           />
-          <h1>You'&apos;re in!</h1>
+          <h1>You&apos;re in!</h1>
           <p>
             Now you can access everything on this site.
             <br />
